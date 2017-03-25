@@ -1,0 +1,35 @@
+/**
+ * 
+ */
+package book.karumanchi.ds.Tree.Questions;
+
+import book.karumanchi.ds.Tree.BinaryTreeNode;
+
+/**
+ * @author subratt
+ *
+ */
+public class LevelOrderTraversalReverse extends BinaryTreeNode{
+
+	
+	
+	public LevelOrderTraversalReverse(int data) {
+		super(data);
+		// TODO Auto-generated constructor stub
+	}
+	/*
+	 * The simplest and most efficient method to get LevelOrderTraversal in reverse order is by using Stack and Queue
+	 */
+	public static void getLevelOrderTraversalReverse(BinaryTreeNode root){
+		
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
