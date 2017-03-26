@@ -1,0 +1,30 @@
+/**
+ * 
+ */
+package book.karumanchi.ds.LinkedList;
+
+/**
+ * @author subratt
+ *
+ */
+public class DoublyLinkedListNode {
+	
+	int data;
+	SinglyLinkedListNode next,prev;
+
+	/**
+	 * 
+	 */
+	public DoublyLinkedListNode() {
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

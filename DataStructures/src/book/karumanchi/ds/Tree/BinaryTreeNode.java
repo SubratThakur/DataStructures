@@ -144,19 +144,33 @@ public class BinaryTreeNode {
 		
 		return levelorderTraversal.toString();
 	}
-
+	
+	public static void deleteTree (BinaryTreeNode root) {
+		if(root ==null){
+			return;
+		}
+		
+		deleteTree(root.getLeft());
+		deleteTree(root.getRight());
+		root.setLeft(null);
+		root.setRight(null);
+		root=null;
+		
+	}
+	
+	
 	/*
 	 * Main Methods for all Binary Tree methods
 	 */
 	public static void main(String[] args) {
 		System.out.println("Binary Tree implimentation");
-		BinaryTreeNode root= new BinaryTreeNode(1);
+		BinaryTreeNode root= new BinaryTreeNode(25);
 		BinaryTreeNode child11= new BinaryTreeNode(2);
-		BinaryTreeNode child12= new BinaryTreeNode(3);
+		BinaryTreeNode child12= new BinaryTreeNode(33);
 		BinaryTreeNode child111= new BinaryTreeNode(4);
-		BinaryTreeNode child1112= new BinaryTreeNode(5);
+		BinaryTreeNode child1112= new BinaryTreeNode(55);
 		BinaryTreeNode child121= new BinaryTreeNode(10);
-		BinaryTreeNode child1212= new BinaryTreeNode(15);
+		BinaryTreeNode child1212= new BinaryTreeNode(45);
 		root.setLeft(child11);
 		root.setRight(child12);
 		child11.setLeft(child111);
@@ -168,6 +182,9 @@ public class BinaryTreeNode {
 		System.out.println("Level Order Traversal for tree is"+getLevelOrderTraversal(root));
 		System.out.println("Height of the tree :" + getHeight(root));
 		System.out.println("Maximum of the tree :" + getMaximum(root));
+		System.out.println("Delete Tree:" );
+		deleteTree(root);
+		System.out.println();
 	}
 
 }
