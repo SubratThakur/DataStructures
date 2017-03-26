@@ -20,8 +20,7 @@ public class BinaryTreeNode {
 	 * @param args
 	 */
 	private int data;
-	private BinaryTreeNode left;
-	private BinaryTreeNode right;
+	private BinaryTreeNode left,right;
 	private static int nodeCount=0;
 	
 
