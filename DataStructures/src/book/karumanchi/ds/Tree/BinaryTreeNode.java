@@ -10,6 +10,8 @@ import java.util.Queue;
 
 /**
  * @author subratt
+ *This is simple node for a Binary Tree.
+ *Class contains all ADT methods of Tree data structure.
  *
  */
 public class BinaryTreeNode {
@@ -18,8 +20,7 @@ public class BinaryTreeNode {
 	 * @param args
 	 */
 	private int data;
-	private BinaryTreeNode left;
-	private BinaryTreeNode right;
+	private BinaryTreeNode left,right;
 	private static int nodeCount=0;
 	
 
