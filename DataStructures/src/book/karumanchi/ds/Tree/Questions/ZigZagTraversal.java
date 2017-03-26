@@ -27,9 +27,10 @@ public class ZigZagTraversal extends BinaryTreeNode {
 		}
 		isrightToLeft = !isrightToLeft;
 		int height=getHeight(root);
-		if(height ==1){
+		if(level == 0){
 			System.out.print(root.getData() +"->");
 		}
+
 		for(;level<height;level++){
 			if(isrightToLeft){
 				zigZagTraversalRecursive(root.getLeft(),level,isrightToLeft);
@@ -41,6 +42,7 @@ public class ZigZagTraversal extends BinaryTreeNode {
 			
 			}
 		}
+		
 				
 	}
 	
@@ -54,16 +56,16 @@ public class ZigZagTraversal extends BinaryTreeNode {
 			BinaryTreeNode btn=listTraversal.poll();
 			System.out.print(btn.getData() + " -> ");
 			if(isrightToLeft){
-				if(root.getLeft() !=null)
-				listTraversal.offer(root.getLeft());
-				if(root.getRight() !=null)
-				listTraversal.offer(root.getRight());
+				if(btn.getLeft() !=null)
+				listTraversal.offer(btn.getLeft());
+				if(btn.getRight() !=null)
+				listTraversal.offer(btn.getRight());
 			}
 			else{
-				if(root.getRight() !=null)
-				listTraversal.offer(root.getRight());
-				if(root.getLeft() !=null)
-				listTraversal.offer(root.getLeft());
+				if(btn.getRight() !=null)
+				listTraversal.offer(btn.getRight());
+				if(btn.getLeft() !=null)
+				listTraversal.offer(btn.getLeft());
 			
 			}
 			isrightToLeft = !isrightToLeft;
@@ -88,7 +90,7 @@ public class ZigZagTraversal extends BinaryTreeNode {
 		child111.setRight(child1112);
 		//System.out.println(getHeight(root));
         //System.out.println("Zigzag Tree traversal result (Recursive) :");
-        //zigZagTraversalRecursive(root,0,true);
+        zigZagTraversalRecursive(root,0,true);
         zigZagTraversalNonRecursive(root,true);
 	}
 
