@@ -10,6 +10,7 @@ import java.util.Queue;
 
 /**
  * @author subratt
+ *This is simle node for a Binary Tree.
  *
  */
 public class BinaryTreeNode {
