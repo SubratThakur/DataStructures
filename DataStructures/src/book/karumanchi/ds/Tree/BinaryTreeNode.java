@@ -10,7 +10,8 @@ import java.util.Queue;
 
 /**
  * @author subratt
- *This is simle node for a Binary Tree.
+ *This is simple node for a Binary Tree.
+ *Class contains all ADT methods of Tree data structure.
  *
  */
 public class BinaryTreeNode {
