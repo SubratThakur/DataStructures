@@ -93,13 +93,13 @@ public class InorderSuccessorAndPredeseccor extends BinarySearchTree {
 	 */
 	public static void main(String[] args) {
 		BinarySearchTree head=new BinarySearchTree(10);
-		head.insert(head, 8);
-		head.insert(head, 9);
-		head.insert(head, 15);
-		head.insert(head, 7);
-		head.insert(head, 12);
-		head.insert(head, 16);
-		head.insert(head, 6);
+		insert(head, 8);
+		insert(head, 9);
+		insert(head, 15);
+		insert(head, 7);
+		insert(head, 12);
+		insert(head, 16);
+		insert(head, 6);
 		System.out.println("Inorder Traversal for tree is" +getInorderTraversal(head,null));
 		//System.out.println(getInorderSuccessor(head, 15));
 		//System.out.println(getInorderSuccessor(head, 12));

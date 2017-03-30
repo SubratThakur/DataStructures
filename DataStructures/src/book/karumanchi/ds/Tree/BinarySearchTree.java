@@ -5,13 +5,16 @@ import java.util.List;
 
 public class BinarySearchTree extends BinaryTreeNode{
 	
-	int data;
-	BinarySearchTree left;
-	BinarySearchTree right;
-	int height;
+	private int data;
+	private BinarySearchTree left;
+	private BinarySearchTree right;
+	private int height;
 
 	public BinarySearchTree(int data) {
 		super(data);
+		this.data=data;
+		this.left=null;
+		this.right=null;
 	}
 
 	
@@ -55,10 +58,11 @@ public class BinarySearchTree extends BinaryTreeNode{
 	}
 
 
-	public static void insert(BinaryTreeNode head,int data){
-		BinaryTreeNode newNode= new BinaryTreeNode(data);
+	public static void insert(BinarySearchTree head,int data){
+		BinarySearchTree newNode= new BinarySearchTree(data);
 		if(head ==null ){
-			head = new BinaryTreeNode (data);
+			head = new BinarySearchTree (data);
+			return;
 		}
 		if(head.getData()>data){
 			if(head.getLeft() !=null){
@@ -73,7 +77,7 @@ public class BinarySearchTree extends BinaryTreeNode{
 			if(head.getRight() !=null && head.getData()<data){
 				insert(head.getRight(),data);
 			}else{
-			head.setLeft(newNode);
+			head.setRight(newNode);
 			}
 		}
 	}

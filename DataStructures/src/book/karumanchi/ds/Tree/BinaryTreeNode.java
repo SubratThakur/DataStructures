@@ -75,9 +75,9 @@ public class BinaryTreeNode {
 			inorderTraversal= new ArrayList<Integer>();
 		}
 
-		BinaryTreeNode.getInorderTraversal(root.getLeft(), inorderTraversal);	
+		getInorderTraversal(root.getLeft(), inorderTraversal);	
 		inorderTraversal.add(root.getData());	
-		BinaryTreeNode.getInorderTraversal(root.getRight(), inorderTraversal);	
+		getInorderTraversal(root.getRight(), inorderTraversal);	
 		
 		return inorderTraversal.toString();
 		
