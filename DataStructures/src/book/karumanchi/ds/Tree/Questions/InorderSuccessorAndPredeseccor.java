@@ -21,22 +21,22 @@ public class InorderSuccessorAndPredeseccor extends BinarySearchTree {
 				throw new RuntimeException("Data not available in tree");				
 			}
 			else{
-				getInorderSuccessor(head.getLeft(),data);
+				inorderSuccessor=getInorderSuccessor(head.getLeft(),data);
 			}
 		}
 		else if(head.getData() <data){
-			if(head.getLeft() ==null ){
+			if(head.getRight() ==null ){
 				throw new RuntimeException("Data not available in tree");				
 			}
 			else{
-				getInorderSuccessor(head.getRight(),data);	
+				inorderSuccessor=getInorderSuccessor(head.getRight(),data);	
 			}
 		}else if(head.getData() ==data){
 			if(head.getRight() !=null){
 			inorderSuccessor=getMinInBinarySearchTree(head.getRight());
 			}
 		}
-		if(head.getData()> data){
+		if(head.getData()> data && (inorderSuccessor ==-1 ||inorderSuccessor>head.getData())){
 			inorderSuccessor=head.getData();
 		}
 		return inorderSuccessor;		
@@ -52,7 +52,7 @@ public class InorderSuccessorAndPredeseccor extends BinarySearchTree {
 				throw new RuntimeException("Data not available in tree");				
 			}
 			else{
-				getInorderPredecessor(head.getLeft(),data);
+				inorderPredecessor=getInorderPredecessor(head.getLeft(),data);
 			}
 		}
 		else if(head.getData() < data){
@@ -60,15 +60,14 @@ public class InorderSuccessorAndPredeseccor extends BinarySearchTree {
 				throw new RuntimeException("Data not available in tree");				
 			}
 			if(head.getRight() !=null){
-				getInorderPredecessor(head.getLeft(),data);	
+				inorderPredecessor=getInorderPredecessor(head.getRight(),data);	
 			}
 		}else if(head.getData() ==data){
 			if(head.getLeft() !=null){
-				inorderPredecessor=getMaxInBinarySearchTree(head.getLeft());
-			}
-			
+				inorderPredecessor= getMaxInBinarySearchTree(head.getLeft());
+			}			
 		}
-		if(head.getData()<data ){
+		if(head.getData()<data && (inorderPredecessor ==-1 ||inorderPredecessor<head.getData())){
 			inorderPredecessor=head.getData();
 		}
 		return inorderPredecessor;
@@ -85,7 +84,7 @@ public class InorderSuccessorAndPredeseccor extends BinarySearchTree {
 		if(head.getRight() ==null){
 			return head.getData();
 		}
-		return getMinInBinarySearchTree(head.getRight());
+		return getMaxInBinarySearchTree(head.getRight());
 	}
 
 	/**
@@ -101,10 +100,12 @@ public class InorderSuccessorAndPredeseccor extends BinarySearchTree {
 		insert(head, 16);
 		insert(head, 6);
 		System.out.println("Inorder Traversal for tree is" +getInorderTraversal(head,null));
-		//System.out.println(getInorderSuccessor(head, 15));
-		//System.out.println(getInorderSuccessor(head, 12));
-		//System.out.println(getInorderPredecessor(head, 16));
-		//System.out.println(getInorderSuccessor(head, 10));
+		System.out.println("Get Minimum for tree is " +getMinInBinarySearchTree(head));
+		System.out.println("Get maximum for tree is " +getMaxInBinarySearchTree(head));
+		System.out.println(getInorderSuccessor(head, 15));
+		System.out.println(getInorderSuccessor(head, 9));
+		//System.out.println(getInorderPredecessor(head, 15));
+		//System.out.println(getInorderPredecessor(head, 10));
 	}
 
 }
