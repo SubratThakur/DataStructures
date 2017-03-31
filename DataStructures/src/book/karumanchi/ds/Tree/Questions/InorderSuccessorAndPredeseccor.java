@@ -1,6 +1,7 @@
 package book.karumanchi.ds.Tree.Questions;
 
 import book.karumanchi.ds.Tree.BinarySearchTree;
+import book.karumanchi.ds.Tree.BinaryTreeNode;
 
 public class InorderSuccessorAndPredeseccor extends BinarySearchTree {
 
@@ -11,7 +12,7 @@ public class InorderSuccessorAndPredeseccor extends BinarySearchTree {
 	}
 	
 	//get min from right subtree or just previous 
-	public static int getInorderSuccessor (BinarySearchTree head,int data){
+	public static int getInorderSuccessor (BinaryTreeNode head,int data){
 		int inorderSuccessor= -1;
 		if(head ==null){
 			return 0;
@@ -42,7 +43,7 @@ public class InorderSuccessorAndPredeseccor extends BinarySearchTree {
 		return inorderSuccessor;		
 	}
 	
-	public static int getInorderPredecessor(BinarySearchTree head,int data) {
+	public static int getInorderPredecessor(BinaryTreeNode head,int data) {
 		int inorderPredecessor= -1;
 		if(head ==null){
 			return inorderPredecessor;
@@ -73,14 +74,14 @@ public class InorderSuccessorAndPredeseccor extends BinarySearchTree {
 		return inorderPredecessor;
 	}
 
-	private static int getMinInBinarySearchTree(BinarySearchTree head) {
+	private static int getMinInBinarySearchTree(BinaryTreeNode head) {
 		if(head.getLeft() ==null){
 			return head.getData();
 		}
 		return getMinInBinarySearchTree(head.getLeft());
 	}
 	
-	private static int getMaxInBinarySearchTree (BinarySearchTree head) {
+	private static int getMaxInBinarySearchTree (BinaryTreeNode head) {
 		if(head.getRight() ==null){
 			return head.getData();
 		}
@@ -91,7 +92,7 @@ public class InorderSuccessorAndPredeseccor extends BinarySearchTree {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		BinarySearchTree head=new BinarySearchTree(10);
+		BinaryTreeNode head=new BinaryTreeNode(10);
 		insert(head, 8);
 		insert(head, 9);
 		insert(head, 15);
@@ -100,10 +101,10 @@ public class InorderSuccessorAndPredeseccor extends BinarySearchTree {
 		insert(head, 16);
 		insert(head, 6);
 		System.out.println("Inorder Traversal for tree is" +getInorderTraversal(head,null));
-		System.out.println("Get Minimum for tree is " +getMinInBinarySearchTree(head));
-		System.out.println("Get maximum for tree is " +getMaxInBinarySearchTree(head));
-		System.out.println(getInorderSuccessor(head, 15));
-		System.out.println(getInorderSuccessor(head, 9));
+		//System.out.println("Get Minimum for tree is " +getMinInBinarySearchTree(head));
+		//System.out.println("Get maximum for tree is " +getMaxInBinarySearchTree(head));
+		System.out.println(getInorderSuccessor(head, 10));
+		System.out.println(getInorderSuccessor(head, 16));
 		//System.out.println(getInorderPredecessor(head, 15));
 		//System.out.println(getInorderPredecessor(head, 10));
 	}

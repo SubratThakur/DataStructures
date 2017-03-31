@@ -3,13 +3,9 @@
  */
 package book.karumanchi.ds.LinkedList;
 
-<<<<<<< HEAD
-=======
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
->>>>>>> 2a4ff666a44bd1715bee099b82067e87fe547787
 /**
  * @author subratt
  *
@@ -55,11 +51,8 @@ public class SinglyLinkedListNode {
 		return length;
 	}
 	
-<<<<<<< HEAD
-	public static void addNode(SinglyLinkedListNode head , int data){
-=======
+
 	public static void addNodeAtLast(SinglyLinkedListNode head , int data){
->>>>>>> 2a4ff666a44bd1715bee099b82067e87fe547787
 		if(head==null){
 			head=	new SinglyLinkedListNode(data);
 		}
@@ -72,9 +65,7 @@ public class SinglyLinkedListNode {
 		}
 	}
 	
-<<<<<<< HEAD
-	public static void deleteNode(SinglyLinkedListNode head , int data) throws RuntimeException {
-=======
+
 	public static void deleteLastNode(SinglyLinkedListNode head) throws RuntimeException {
 		if(head==null){
 			throw new RuntimeException("LinkedList is empty"); 
@@ -89,13 +80,10 @@ public class SinglyLinkedListNode {
 	
 	public static void deleteNode(SinglyLinkedListNode head, int data) throws RuntimeException {
 		int position=0;
->>>>>>> 2a4ff666a44bd1715bee099b82067e87fe547787
 		if(head==null){
 			throw new RuntimeException("LinkedList is empty"); 
 			
 		}
-<<<<<<< HEAD
-=======
 		while(head !=null){
 			position++;
 			if(head.getData() == data || (head.getNext() !=null && head.getNext().getData() == data)){
@@ -204,26 +192,21 @@ public class SinglyLinkedListNode {
 		}
 		System.out.println(backHead.getData());
 		return backHead.getData();
->>>>>>> 2a4ff666a44bd1715bee099b82067e87fe547787
 	}
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-<<<<<<< HEAD
-		// TODO Auto-generated method stub
-
-=======
 		//1 ->5-> 7-> 9-> 3-> 18->13 ->13
 		SinglyLinkedListNode head=new SinglyLinkedListNode(1);
-		head.addNodeAtLast(head, 5);
-		head.addNodeAtLast(head, 7);
-		head.addNodeAtLast(head, 9);
-		head.addNodeAtLast(head, 3);
-		head.addNodeAtLast(head, 18);
-		head.addNodeAtLast(head, 13);
-		head.addNodeAtLast(head, 13);
+		addNodeAtLast(head, 5);
+		addNodeAtLast(head, 7);
+		addNodeAtLast(head, 9);
+		addNodeAtLast(head, 3);
+		addNodeAtLast(head, 18);
+		addNodeAtLast(head, 13);
+		addNodeAtLast(head, 13);
 		//printLinkedList(head);
 		//deleteLastNode(head);
 		//printLinkedList(head);
@@ -237,7 +220,6 @@ public class SinglyLinkedListNode {
 		//insertNodeAtKthPosition(head, 3, 17);
 		//getMiddleElement(head);
 		//findNthNodeFromLast(head, 3);
->>>>>>> 2a4ff666a44bd1715bee099b82067e87fe547787
 	}
 
 }

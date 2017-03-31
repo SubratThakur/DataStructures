@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * @author subratt
@@ -159,6 +160,30 @@ public class BinaryTreeNode {
 		
 	}
 	
+	public static void getTopView(BinaryTreeNode root) {
+		if(root ==null){
+			return;
+		}
+		BinaryTreeNode head=root;
+		Stack leftdata=new Stack();
+		if(head.getLeft() !=null){
+			while(root !=null){
+				leftdata.push(root.data);
+				root=root.getLeft();
+			}
+		}
+		while(!leftdata.isEmpty()){
+			System.out.print(leftdata.pop());
+		}
+		if(head.getRight() !=null){
+			head=head.getRight();
+			while(head !=null){
+				System.out.print(head.getData());
+				head=head.getRight();
+			}
+		}
+	}
+	
 	
 	/*
 	 * Main Methods for all Binary Tree methods
@@ -178,14 +203,14 @@ public class BinaryTreeNode {
 		child111.setRight(child1112);
 		child12.setLeft(child121);
 		child121.setLeft(child1212);
-		System.out.println(getNodeCount(root));
+		/*System.out.println(getNodeCount(root));
 		System.out.println("Inorder Traversal for tree is" +getInorderTraversal(root,null));
 		System.out.println("Level Order Traversal for tree is"+getLevelOrderTraversal(root));
 		System.out.println("Height of the tree :" + getHeight(root));
 		System.out.println("Maximum of the tree :" + getMaximum(root));
 		System.out.println("Delete Tree:" );
-		deleteTree(root);
-		System.out.println();
+		deleteTree(root);*/
+		getTopView(root);
 	}
 
 }
