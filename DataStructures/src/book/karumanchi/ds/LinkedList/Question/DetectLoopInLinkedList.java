@@ -37,13 +37,13 @@ public class DetectLoopInLinkedList extends SinglyLinkedListNode{
 	public static void main(String[] args) {
 		//1 ->5-> 7-> 9-> 3-> 18->13 ->13
 				SinglyLinkedListNode head=new SinglyLinkedListNode(1);
-				head.addNodeAtLast(head, 5);
-				head.addNodeAtLast(head, 7);
-				head.addNodeAtLast(head, 9);
-				head.addNodeAtLast(head, 3);
-				head.addNodeAtLast(head, 18);
-				head.addNodeAtLast(head, 13);
-				head.addNodeAtLast(head, 13);
+				addNodeAtLast(head, 5);
+				addNodeAtLast(head, 7);
+				addNodeAtLast(head, 9);
+				addNodeAtLast(head, 3);
+				addNodeAtLast(head, 18);
+				addNodeAtLast(head, 13);
+				addNodeAtLast(head, 13);
 				isLoopInLinkedList(head);
 				SinglyLinkedListNode lastNode = head.getLastNode(head);
 				lastNode.setNext(head.getNext());
