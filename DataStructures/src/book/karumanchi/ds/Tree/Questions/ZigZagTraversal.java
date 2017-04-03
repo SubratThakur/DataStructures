@@ -49,25 +49,26 @@ public class ZigZagTraversal extends BinarySearchTree {
 	}
 	
 	public static void zigZagTraversalNonRecursive(BinaryTreeNode root){
-		Queue<BinaryTreeNode> listTraversalQueue=new LinkedList<BinaryTreeNode>();
+		Stack<BinaryTreeNode> listTraversalStack1=new Stack<BinaryTreeNode>();
 		Stack<BinaryTreeNode> listTraversal=new Stack<BinaryTreeNode>();
 		if(root ==null){
 			return;
 		}
 		listTraversal.push(root);
-		while(!listTraversal.isEmpty() || !listTraversalQueue.isEmpty()){
+		while(!listTraversal.isEmpty() || !listTraversalStack1.isEmpty()){
 			
 			while(!listTraversal.isEmpty()){
 				BinaryTreeNode btn=listTraversal.pop();
 				System.out.print(btn.getData() + "-> ");
-				if(btn.getLeft() !=null)
-					listTraversalQueue.offer(btn.getLeft());
+
 				if(btn.getRight() !=null)
-					listTraversalQueue.offer(btn.getRight());
+					listTraversalStack1.push(btn.getRight());
+				if(btn.getLeft() !=null)
+					listTraversalStack1.push(btn.getLeft());
 			}
 
-			while( !listTraversalQueue.isEmpty()){
-				BinaryTreeNode btn=listTraversalQueue.poll();
+			while( !listTraversalStack1.isEmpty()){
+				BinaryTreeNode btn=listTraversalStack1.pop();
 				System.out.print(btn.getData() + "-> ");
 					if(btn.getLeft() !=null)
 						listTraversal.push(btn.getLeft());
