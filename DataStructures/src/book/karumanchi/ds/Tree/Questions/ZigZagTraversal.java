@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 import book.karumanchi.ds.Tree.BinaryTreeNode;
 
@@ -47,31 +48,32 @@ public class ZigZagTraversal extends BinaryTreeNode {
 	}
 	
 	public static void zigZagTraversalNonRecursive(BinaryTreeNode root,boolean isrightToLeft){
-		Queue<BinaryTreeNode> listTraversal=new LinkedList<BinaryTreeNode>();
+		Queue<BinaryTreeNode> listTraversalQueue=new LinkedList<BinaryTreeNode>();
+		Stack<BinaryTreeNode> listTraversal=new Stack<BinaryTreeNode>();
 		if(root ==null){
 			return;
 		}
-		listTraversal.offer(root);
-		while(!listTraversal.isEmpty()){
-			BinaryTreeNode btn=listTraversal.poll();
-			System.out.print(btn.getData() + " -> ");
-			if(isrightToLeft){
+		listTraversal.push(root);
+		while(!listTraversal.isEmpty() && isrightToLeft){
+			BinaryTreeNode btn=listTraversal.pop();
+			System.out.print(btn.getData() + "-> ");
 				if(btn.getLeft() !=null)
-				listTraversal.offer(btn.getLeft());
+				listTraversal.push(btn.getLeft());
 				if(btn.getRight() !=null)
-				listTraversal.offer(btn.getRight());
-			}
-			else{
-				if(btn.getRight() !=null)
-				listTraversal.offer(btn.getRight());
+				listTraversal.push(btn.getRight());
+		}
+		while(!listTraversalQueue.isEmpty() && isrightToLeft){
+			BinaryTreeNode btn=listTraversalQueue.poll();
+			System.out.print(btn.getData() + "-> ");
 				if(btn.getLeft() !=null)
-				listTraversal.offer(btn.getLeft());
+					listTraversalQueue.offer(btn.getRight());
+				if(btn.getRight() !=null)
+					listTraversalQueue.offer(btn.getLeft());
 			
 			}
 			isrightToLeft = !isrightToLeft;
 		}
 		
-	}
 
 	/**
 	 * @param args
