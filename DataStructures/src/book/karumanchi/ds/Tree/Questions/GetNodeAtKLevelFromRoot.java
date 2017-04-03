@@ -3,9 +3,9 @@ package book.karumanchi.ds.Tree.Questions;
 import book.karumanchi.ds.Tree.BinarySearchTree;
 import book.karumanchi.ds.Tree.BinaryTreeNode;
 
-public class GetNodeAtKLevel extends BinarySearchTree {
+public class GetNodeAtKLevelFromRoot extends BinarySearchTree {
 
-	public GetNodeAtKLevel(int data) {
+	public GetNodeAtKLevelFromRoot(int data) {
 		super(data);
 		// TODO Auto-generated constructor stub
 	}
