@@ -16,7 +16,7 @@ import book.karumanchi.ds.Tree.BinaryTreeNode;
 public class LevelOrderTraversalReverse extends BinaryTreeNode{
 
 	
-	
+	static int  maxlevel = 0;
 	public LevelOrderTraversalReverse(int data) {
 		super(data);
 		// TODO Auto-generated constructor stub
@@ -95,12 +95,38 @@ public class LevelOrderTraversalReverse extends BinaryTreeNode{
           System.out.print(root.getData() + "->");
           else
           {
+        	  
         	  printGivenLevelOrder(root.getLeft() , level-1);
         	  printGivenLevelOrder(root.getRight() , level-1);
           }
           
 	}
+	
+	/*
+	 * Left view of a tree would be the first node at each level
+	 * We can do a level order traversal and print first node at each level
+	 */
+	
+	public static void printLeftView(BinaryTreeNode root)
+	{
+		if(root == null)
+			return;
+		
+		printLeftViewUtil(root ,1);
+	}
+	public static void printLeftViewUtil(BinaryTreeNode root , int level)
+	{
+		if(root == null)
+			return;
+		if(level > maxlevel){
+			System.out.println(root.getData());
+			maxlevel= level;
+		}
 
+		printLeftViewUtil(root.getLeft() , level +1);
+		printLeftViewUtil(root.getRight() , level +1);
+		
+	}
 	/**
 	 * @param args
 	 */
@@ -113,6 +139,7 @@ public class LevelOrderTraversalReverse extends BinaryTreeNode{
 		BinaryTreeNode child1111= new BinaryTreeNode (6);
 		BinaryTreeNode child1113= new BinaryTreeNode (7);
 		BinaryTreeNode child1114= new BinaryTreeNode (8);
+		BinaryTreeNode child1124= new BinaryTreeNode (9);
 		root.setLeft(child11);
 		root.setRight(child12);
 		child11.setLeft(child111);
@@ -120,9 +147,11 @@ public class LevelOrderTraversalReverse extends BinaryTreeNode{
 		child12.setRight(child1113);
 		child11.setRight(child1112);
 		child1113.setRight(child1114);
+		child1112.setLeft(child1124);
 		//getLevelOrderTraversalReverse(root);
 		//getLevelOrderTraversalReverseRecursive(root);
-		getLevelOrderTraversalRecursive(root);
+		// getLevelOrderTraversalRecursive(root);
+		printLeftView(root);
 	}
 
 }

@@ -20,8 +20,10 @@ public class TwoSum {
 		// TODO Auto-generated method stub
 		int [] nums = {2, 7, 11, 15};
 		int target = 9;
-		twoSum(nums,target);
-
+		int[]  result = twoSum(nums,target);
+		for(int i=0;i<result.length;i++)
+			
+        System.out.println(i);
 	}
 	
 	public static int[] twoSum(int[] nums, int target) {

@@ -20,7 +20,38 @@ public class ZigZagTraversal extends BinaryTreeNode {
 		super(data);
 	}
 	
-	public static void zigZagTraversalRecursive(BinaryTreeNode root,int level,boolean isrightToLeft){
+	public static void zigZagTraversalRecursive(BinaryTreeNode root){
+		int height = getHeight(root);
+		boolean zigzagflag = false;
+		for(int i=1;i <= height;i++)
+		{
+			printGivenLevelOrder(root , i , zigzagflag);
+			zigzagflag = !zigzagflag;
+       }
+	}
+	
+	public static void printGivenLevelOrder(BinaryTreeNode root, int level ,boolean zigzagflag){
+		  if(root == null)
+			  return;
+          if(level == 1)
+          System.out.print(root.getData() + "->");
+          
+          else
+          {
+        	  if(zigzagflag){
+        	  printGivenLevelOrder(root.getLeft() , level-1 , zigzagflag);
+        	  printGivenLevelOrder(root.getRight() , level-1,zigzagflag);
+        	  }
+        	  else
+        	  {
+        		  printGivenLevelOrder(root.getRight() , level-1 ,zigzagflag);
+            	  printGivenLevelOrder(root.getLeft() , level-1,zigzagflag);
+        	  }
+          }
+          
+	}
+	
+	/*public static void zigZagTraversalRecursive(BinaryTreeNode root,int level,boolean isrightToLeft){
 		List<Integer> traversalPath =new ArrayList<Integer>();
 		if(root ==null){
 			return ;
@@ -44,7 +75,7 @@ public class ZigZagTraversal extends BinaryTreeNode {
 		}
 		
 				
-	}
+	}*/
 	
 	public static void zigZagTraversalNonRecursive(BinaryTreeNode root,boolean isrightToLeft){
 		Queue<BinaryTreeNode> listTraversal=new LinkedList<BinaryTreeNode>();
@@ -90,8 +121,8 @@ public class ZigZagTraversal extends BinaryTreeNode {
 		child111.setRight(child1112);
 		//System.out.println(getHeight(root));
         //System.out.println("Zigzag Tree traversal result (Recursive) :");
-        zigZagTraversalRecursive(root,0,true);
-        zigZagTraversalNonRecursive(root,true);
+        zigZagTraversalRecursive(root);
+       // zigZagTraversalNonRecursive(root,true);
 	}
 
 }
