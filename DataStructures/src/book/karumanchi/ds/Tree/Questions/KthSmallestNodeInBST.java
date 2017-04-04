@@ -33,7 +33,7 @@ public class KthSmallestNodeInBST extends BinarySearchTree{
 		}
 		System.out.println(sortedData.poll());
 		//Recursive method call
-		entryPointForRecursiveMethod(head,2);
+		entryPointForRecursiveMethod(head,7);
 	}
 	
 	private static Queue getKthSmallestNodeNonRecurssive(BinaryTreeNode head,Queue<Integer> sortedData){
