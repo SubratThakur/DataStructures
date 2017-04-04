@@ -87,6 +87,30 @@ public class InorderSuccessorAndPredeseccor extends BinarySearchTree {
 		}
 		return getMaxInBinarySearchTree(head.getRight());
 	}
+	
+	public static BinaryTreeNode getLeastCommonAncestor(BinaryTreeNode root , int v1 , int v2)
+	{
+		if(root == null)
+			return null;
+		if(root.getData() > v1)
+		{
+			if(root.getData() < v2) //signifies both nodes are in different subtrees
+				return root;
+			else
+				return getLeastCommonAncestor(root.getLeft() , v1 ,v2);
+		}
+		
+		else if(root.getData() < v1) //v1 is in right subtree
+		{
+			if(root.getData() > v2)  // v2 is in left subtree
+				return root;
+			else
+				return getLeastCommonAncestor(root.getRight() , v1 ,v2);
+		}
+		
+		
+		return root;
+	}
 
 	/**
 	 * @param args
@@ -100,13 +124,15 @@ public class InorderSuccessorAndPredeseccor extends BinarySearchTree {
 		insert(head, 12);
 		insert(head, 16);
 		insert(head, 6);
-		System.out.println("Inorder Traversal for tree is" +getInorderTraversal(head,null));
+		//System.out.println("Inorder Traversal for tree is" +getInorderTraversal(head,null));
 		//System.out.println("Get Minimum for tree is " +getMinInBinarySearchTree(head));
 		//System.out.println("Get maximum for tree is " +getMaxInBinarySearchTree(head));
-		System.out.println(getInorderSuccessor(head, 10));
-		System.out.println(getInorderSuccessor(head, 16));
+		  System.out.println(getInorderSuccessor(head, 11));
+		//System.out.println(getInorderSuccessor(head, 16));
 		//System.out.println(getInorderPredecessor(head, 15));
 		//System.out.println(getInorderPredecessor(head, 10));
+		//BinaryTreeNode LeastCommonAncestor = getLeastCommonAncestor(head , 8 , 9);
+		//System.out.println(LeastCommonAncestor.getData());
 	}
 
 }

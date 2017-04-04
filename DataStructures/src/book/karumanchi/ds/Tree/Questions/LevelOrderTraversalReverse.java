@@ -16,7 +16,7 @@ import book.karumanchi.ds.Tree.BinaryTreeNode;
 public class LevelOrderTraversalReverse extends BinaryTreeNode{
 
 	
-	
+	static int  maxlevel = 0;
 	public LevelOrderTraversalReverse(int data) {
 		super(data);
 		// TODO Auto-generated constructor stub
@@ -95,11 +95,13 @@ public class LevelOrderTraversalReverse extends BinaryTreeNode{
           System.out.print(root.getData() + "->");
           else
           {
+        	  
         	  printGivenLevelOrder(root.getLeft() , level-1);
         	  printGivenLevelOrder(root.getRight() , level-1);
           }
           
 	}
+	
 
 	/**
 	 * @param args
@@ -113,6 +115,7 @@ public class LevelOrderTraversalReverse extends BinaryTreeNode{
 		BinaryTreeNode child1111= new BinaryTreeNode (6);
 		BinaryTreeNode child1113= new BinaryTreeNode (7);
 		BinaryTreeNode child1114= new BinaryTreeNode (8);
+		BinaryTreeNode child1124= new BinaryTreeNode (9);
 		root.setLeft(child11);
 		root.setRight(child12);
 		child11.setLeft(child111);
@@ -120,9 +123,12 @@ public class LevelOrderTraversalReverse extends BinaryTreeNode{
 		child12.setRight(child1113);
 		child11.setRight(child1112);
 		child1113.setRight(child1114);
+		child1112.setLeft(child1124);
 		//getLevelOrderTraversalReverse(root);
 		//getLevelOrderTraversalReverseRecursive(root);
-		getLevelOrderTraversalRecursive(root);
+		// getLevelOrderTraversalRecursive(root);
+		//printLeftView(root);
+		
 	}
 
 }
