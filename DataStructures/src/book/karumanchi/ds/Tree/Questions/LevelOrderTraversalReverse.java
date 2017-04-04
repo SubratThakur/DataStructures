@@ -102,31 +102,7 @@ public class LevelOrderTraversalReverse extends BinaryTreeNode{
           
 	}
 	
-	/*
-	 * Left view of a tree would be the first node at each level
-	 * We can do a level order traversal and print first node at each level
-	 */
-	
-	public static void printLeftView(BinaryTreeNode root)
-	{
-		if(root == null)
-			return;
-		
-		printLeftViewUtil(root ,1);
-	}
-	public static void printLeftViewUtil(BinaryTreeNode root , int level)
-	{
-		if(root == null)
-			return;
-		if(level > maxlevel){
-			System.out.println(root.getData());
-			maxlevel= level;
-		}
 
-		printLeftViewUtil(root.getLeft() , level +1);
-		printLeftViewUtil(root.getRight() , level +1);
-		
-	}
 	/**
 	 * @param args
 	 */
@@ -151,7 +127,8 @@ public class LevelOrderTraversalReverse extends BinaryTreeNode{
 		//getLevelOrderTraversalReverse(root);
 		//getLevelOrderTraversalReverseRecursive(root);
 		// getLevelOrderTraversalRecursive(root);
-		printLeftView(root);
+		//printLeftView(root);
+		
 	}
 
 }

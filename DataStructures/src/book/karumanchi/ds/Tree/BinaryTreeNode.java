@@ -185,6 +185,7 @@ public class BinaryTreeNode {
 	}
 	
 	
+	
 	/*
 	 * Main Methods for all Binary Tree methods
 	 */
@@ -210,7 +211,23 @@ public class BinaryTreeNode {
 		System.out.println("Maximum of the tree :" + getMaximum(root));
 		System.out.println("Delete Tree:" );
 		deleteTree(root);*/
-		getTopView(root);
+		//getTopView(root);
+		/*boolean siblings = checkSiblings(root,child121,child1112);
+		if (siblings == true)
+				System.out.print("Nodes are siblings");
+		else
+			System.out.print("Nodes are not siblings");*/
+		//singleChild(root);
+		/*int level = getLevel(root , child111 ,1);
+		System.out.print("Node is at level " + level); */
+		/*boolean cousins = checkCousins(root,child111,child121);
+		if (cousins == true)
+				System.out.print("Nodes are cousins");
+		else
+			System.out.print("Nodes are not cousins");*/
+		//printNodesAtLevel(root , 1 , 5);
+		//System.out.print(countNodesAtLevel(root , 1 ,4));
+		//System.out.print(getWidth(root));
 	}
 
 }
