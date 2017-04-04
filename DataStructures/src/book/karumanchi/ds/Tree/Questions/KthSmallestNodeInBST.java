@@ -9,7 +9,7 @@ import book.karumanchi.ds.Tree.BinaryTreeNode;
 
 public class KthSmallestNodeInBST extends BinarySearchTree{
 	
-	private int k=0;
+	private static int val=0;
 	public KthSmallestNodeInBST(int data) {
 		super(data);
 		// TODO Auto-generated constructor stub
@@ -32,6 +32,8 @@ public class KthSmallestNodeInBST extends BinarySearchTree{
 			k--;
 		}
 		System.out.println(sortedData.poll());
+		//Recursive method call
+		entryPointForRecursiveMethod(head,2);
 	}
 	
 	private static Queue getKthSmallestNodeNonRecurssive(BinaryTreeNode head,Queue<Integer> sortedData){
@@ -47,6 +49,30 @@ public class KthSmallestNodeInBST extends BinarySearchTree{
 		getKthSmallestNodeNonRecurssive(head.getRight(), sortedData);	
 		
 		return sortedData;
+	}
+	
+	//Recursive method
+	private static void entryPointForRecursiveMethod(BinaryTreeNode head,int k){
+		if(val==0){
+			val =k-1;
+		}
+		getKthSmallestNodeRecurssive(head);
+	}
+	
+	private static void getKthSmallestNodeRecurssive(BinaryTreeNode head){
+		
+		
+		if(head==null){
+			return ;
+		}
+		getKthSmallestNodeRecurssive(head.getLeft());	
+		if(val ==0){
+			System.out.println(head.getData());
+		}
+		val--;
+		getKthSmallestNodeRecurssive(head.getRight());	
+		
+		return ;
 	}
 
 }
