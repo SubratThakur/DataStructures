@@ -6,7 +6,6 @@ public class SiblingAndCousinNodes extends BinaryTreeNode {
 
 	public SiblingAndCousinNodes(int data) {
 		super(data);
-		// TODO Auto-generated constructor stub
 	}
 	
 	private static boolean isSiblings(BinaryTreeNode root , int k, int j) {

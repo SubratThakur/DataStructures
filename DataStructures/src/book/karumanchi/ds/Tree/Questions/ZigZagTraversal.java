@@ -53,31 +53,6 @@ public class ZigZagTraversal extends BinarySearchTree {
           
 	}
 	
-	public static void zigZagTraversalRecursive(BinaryTreeNode root,int level,boolean isrightToLeft){
-		List<Integer> traversalPath =new ArrayList<Integer>();
-		if(root ==null){
-			return ;
-		}
-		isrightToLeft = !isrightToLeft;
-		int height=getHeight(root);
-		if(level == 0){
-			System.out.print(root.getData() +"->");
-		}
-
-		for(;level<height;level++){
-			if(isrightToLeft){
-				zigZagTraversalRecursive(root.getLeft(),level,isrightToLeft);
-				zigZagTraversalRecursive(root.getRight(),level,isrightToLeft);
-			}
-			else{
-				zigZagTraversalRecursive(root.getRight(),level,isrightToLeft);
-				zigZagTraversalRecursive(root.getLeft(),level,isrightToLeft);
-			
-			}
-		}
-		
-				
-	}
 	
 	public static void zigZagTraversalNonRecursive(BinaryTreeNode root){
 		Stack<BinaryTreeNode> listTraversalStack1=new Stack<BinaryTreeNode>();
@@ -129,7 +104,7 @@ public class ZigZagTraversal extends BinarySearchTree {
         //System.out.println("Zigzag Tree traversal result (Recursive) :");
 		//10-8-15-16-12-9-7-6-11-13
 		System.out.println("Inorder" + getInorderTraversal(head, null));
-        zigZagTraversalRecursive(head,0,true);
+        zigZagTraversalRecursive(head);
         System.out.println("NonRecursive");
         zigZagTraversalNonRecursive(head);
 	}
